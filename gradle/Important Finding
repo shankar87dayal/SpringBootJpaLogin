@@ -1,0 +1,10 @@
+https://dzone.com/articles/add-custom-functionality-to-a-spring-data-reposito
+
+https://www.thoughts-on-java.org/jpa-native-queries/
+
+
+to do
+************
+
+String username = loginRepo.findByUsername(user).toString(); ---boolean
+		String password = loginRepo.findByPassword(pass).toString();----boolean
