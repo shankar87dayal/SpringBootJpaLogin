@@ -20,7 +20,7 @@ Welcome to our web-site :- <%= s_result%> .
 
 Welcome ${usernameValue} through spring security.
 
-<a href="<c:url value="/logout" />">Logout</a>
+<a href="<c:url value="/login" />">Logout</a>
 
 </body>
 </html>

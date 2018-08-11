@@ -26,6 +26,7 @@ public class ExtendedRepositoryImpl implements ExtendedRepositoryCustom {
         q.setParameter(1,username);
         List<LoginBean> authors = q.getResultList();
         String u1 = "";
+    
         for (LoginBean a : authors) {
         	u1 = a.getUsername();
         }
@@ -47,6 +48,29 @@ public class ExtendedRepositoryImpl implements ExtendedRepositoryCustom {
         System.out.println(p1.equals(password));
         System.out.println("password is "+p1);
         return p1.equals(password);
+	}
+
+	@Override
+	public boolean findByUsernamePassword(String username, String password) {
+
+		 Query q = entityManager.createNativeQuery("SELECT a.id, a.username, a.password FROM mydb.login a where a.username=?1", LoginBean.class);
+	        q.setParameter(1,username);
+	        List<LoginBean> authors = q.getResultList();
+	        //String u1 = "";
+	        LoginBean object =(LoginBean) q.getSingleResult();
+	        String u1= object.getUsername();
+	        String p1=object.getPassword();
+	    
+	        /*for (LoginBean a : authors) {
+	        	u1 = a.getUsername();
+	        }*/
+	        System.out.println("username is "+u1);
+	        System.out.println("Password is "+p1);
+	        
+	        boolean usernameBoolean = u1.equalsIgnoreCase(username);
+			boolean passwordBoolean = p1.equals(password);
+			return usernameBoolean && passwordBoolean;
+		
 	}
 
 	

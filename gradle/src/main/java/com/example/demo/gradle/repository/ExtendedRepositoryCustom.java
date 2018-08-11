@@ -9,4 +9,7 @@ public interface ExtendedRepositoryCustom {
 	public boolean findByUsername(String username);
 
 	public boolean findByPassword(String password);
+	
+	
+	public boolean findByUsernamePassword(String username,String password);
 }

@@ -14,10 +14,7 @@ import com.example.demo.gradle.model.LoginBean;
 @Transactional(readOnly = true)
 public interface CustomRepository extends JpaRepository<LoginBean, Integer> {
 
-	@Query("SELECT a.id, a.username, a.password FROM LoginBean a where a.username=?1")
-	public List<LoginBean> findByUsername(String username);
-	
-	@Query("SELECT a.id, a.username, a.password FROM LoginBean a where a.password=?1")
-	public List<LoginBean> findByPassword(String password);
+	@Query(value="SELECT a.id, a.username, a.password FROM login a where a.username=?1", nativeQuery=true)
+	public LoginBean findByUsername(String username);
 	
 }
